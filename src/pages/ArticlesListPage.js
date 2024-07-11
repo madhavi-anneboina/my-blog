@@ -1,16 +1,15 @@
 import React from "react";
 import articleData from "./Content";
 
+import ArticlesList from "../components/ArticlesList";
+
+
+
 const ArticlesListPage = () => {
   return (
     <>
       <h1>Article</h1>
-      {articleData.map((article) => (
-        <div>
-          <h3>{article.title}</h3>
-          <p>{article.content[0].substring(0, 150)}</p>
-        </div>
-      ))}
+       <ArticlesList articleData = {articleData} />
     </>
   );
 };
