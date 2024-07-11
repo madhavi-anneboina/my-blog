@@ -1,9 +1,21 @@
-import React from 'react'
+import { useParams } from 'react-router-dom';
+import articleData from './Content';
 
 const ArticlePage = () => {
-  return (
-    <div>ArticlePage</div>
-  )
+  const { articleId } = useParams();
+
+  // const cleanArticleId = articleId.startsWith(':') ? articleId.slice(1) : articleId;
+ 
+  const article = articleData.find(article => article.name === articleId);
+ 
+    return (
+      <div>
+      <h1>{article.title}</h1>
+      {article.content.map((paragraph, index) => (
+          <p key={index}>{paragraph}</p>
+      ))}
+  </div>
+    );
 }
 
-export default ArticlePage
+export default ArticlePage;
